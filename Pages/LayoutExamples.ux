@@ -1,0 +1,168 @@
+<Page  ux:Class="LayoutExamples" ux:Name="LayoutExamples" Padding="0,0,0,0" Transition="Standard" Background="#7aa4a9">
+  <Router ux:Dependency="router"/>
+
+  <Grid Rows="100,auto,1*">
+    <Panel Padding="20" Height="100" Background="#61858a">
+      <Text Alignment="Center" Color="White" FontSize="20">Layout Examples</Text>
+      <Clicked>
+        <JavaScript>
+          router.goto("HomePage");
+        </JavaScript>
+      </Clicked>
+    </Panel>
+
+    <Panel Margin="8">
+      <ColumnLayout ColumnCount="2" />
+      <Panel Margin="8" Padding="20" Background="#ee486b" HitTestMode="LocalBoundsAndChildren">
+          <Text Alignment="Center" Color="White">StackPanel</Text>
+      </Panel>
+
+      <Panel Margin="8" Padding="20" Background="#8184f9" HitTestMode="LocalBoundsAndChildren">
+        <Text Alignment="Center" Color="White">DockPanel</Text>
+      </Panel>
+
+      <Panel Margin="8" Padding="20" Background="#f9ad81" HitTestMode="LocalBoundsAndChildren">
+        <Text Alignment="Center" Color="White">Grid</Text>
+      </Panel>
+
+      <Panel Margin="8" Padding="20" Background="#3fd4b1">
+        <Text Alignment="Center" Color="White">WrapPanel</Text>
+      </Panel>
+
+      <Panel Margin="8" Padding="20" Background="#f981ec">
+        <Text Alignment="Center" Color="White">ColumnLayout</Text>
+      </Panel>
+
+      <Panel Margin="8" Padding="20" Background="#bb8758">
+        <Text Alignment="Center" Color="White">ScrollView</Text>
+      </Panel>
+    </Panel>
+
+    <PageControl Dock="Fill" Margin="20">
+
+      <Page>
+        <StackPanel>
+          <Text Color="White" Margin="0,0,0,20">StackPanel</Text>
+
+          <StackPanel ItemSpacing="5">
+              <Panel Height="50" Background="Red"/>
+              <Panel Height="50" Background="Green"/>
+              <Panel Height="50" Background="Blue"/>
+          </StackPanel>
+
+        </StackPanel>
+      </Page>
+
+      <Page>
+        <StackPanel>
+          <Text Color="White" Margin="0,0,0,20">DockPanel</Text>
+
+          <DockPanel>
+          	<Rectangle Dock="Left" Width="100" Color="Red"/>
+          	<Rectangle Dock="Top" Height="100" Color="Green"/>
+          	<Rectangle Dock="Right" Width="100" Color="Blue"/>
+          	<Rectangle Dock="Bottom" Height="100" Color="Teal"/>
+          	<Rectangle Color="Yellow"/>
+          </DockPanel>
+
+        </StackPanel>
+      </Page>
+
+      <Page>
+        <StackPanel>
+          <Text Color="White" Margin="0,0,0,20">Grid</Text>
+
+          <Grid Height="200" RowCount="2" ColumnCount="3">
+        		<Rectangle Color="#ff4500"/>
+        		<Rectangle Color="#ee7942"/>
+        		<Rectangle Color="#ee6363"/>
+        		<Rectangle Color="#ffb90f"/>
+        		<Rectangle Color="#eeb422"/>
+        		<Rectangle Color="#eedc82"/>
+        	</Grid>
+
+        </StackPanel>
+      </Page>
+
+      <Page>
+        <StackPanel>
+          <Text Color="White" Margin="0,0,0,20">Wrap Panel</Text>
+
+          <WrapPanel FlowDirection="RightToLeft">
+              <Each Count="10">
+                  <Rectangle Margin="5" Width="20" Height="20" Color="#ee7942"/>
+              </Each>
+          </WrapPanel>
+
+        </StackPanel>
+      </Page>
+
+
+      <Page>
+        <StackPanel>
+          <Text Color="White" Margin="0,0,0,20">Column Layout</Text>
+
+          <Panel Height="200" Width="100%">
+              <ColumnLayout />
+              <Each Count="9">
+                  <Circle Margin="5" Height="30" Color="#ee6363" />
+              </Each>
+          </Panel>
+
+        </StackPanel>
+      </Page>
+
+
+
+      <Page>
+        <StackPanel>
+          <Text Color="White" Margin="0,0,0,20">Scroll View</Text>
+
+          <ScrollView Height="200">
+            <StackPanel>
+              <Rectangle Width="100%" Height="20" Color="#ff4500" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee7942" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee6363" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ffb90f" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eeb422" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eedc82" Margin="5"/>
+              <Rectangle Width="100%" Height="20" Color="#ff4500" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee7942" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee6363" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ffb90f" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eeb422" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eedc82" Margin="5"/>
+              <Rectangle Width="100%" Height="20" Color="#ff4500" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee7942" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee6363" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ffb90f" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eeb422" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eedc82" Margin="5"/>
+              <Rectangle Width="100%" Height="20" Color="#ff4500" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee7942" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee6363" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ffb90f" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eeb422" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eedc82" Margin="5"/>
+              <Rectangle Width="100%" Height="20" Color="#ff4500" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee7942" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee6363" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ffb90f" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eeb422" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eedc82" Margin="5"/>
+              <Rectangle Width="100%" Height="20" Color="#ff4500" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee7942" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ee6363" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#ffb90f" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eeb422" Margin="5"/>
+          		<Rectangle Width="100%" Height="20" Color="#eedc82" Margin="5"/>
+            </StackPanel>
+          </ScrollView>
+
+        </StackPanel>
+      </Page>
+
+    </PageControl>
+
+  </Grid>
+</Page>

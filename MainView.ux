@@ -1,0 +1,13 @@
+<App Background="#000">
+		<Router ux:Name="router" />
+
+		<iOS.StatusBarConfig Style="Dark" Animation="Slide" IsVisible="True" />
+
+		<Navigator SwipeBack="Right" DefaultPath="HomePage">
+			<HomePage ux:Template="HomePage" router="router"/>
+			<LayoutExamples ux:Template="LayoutExamples" router="router"/>
+			<JavaScriptExamples ux:Template="JavaScriptExamples" router="router"/>
+			<AnimationExamples ux:Template="AnimationExamples" router="router"/>
+		</Navigator>
+
+</App>

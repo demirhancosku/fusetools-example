@@ -1,0 +1,125 @@
+<Page  ux:Class="JavaScriptExamples" ux:Name="JavaScriptExamples" Padding="0,0,0,0" Transition="Standard" Background="#c9549d">
+  <Router ux:Dependency="router"/>
+
+
+  <DockPanel>
+    <Panel Dock="Top" Padding="20" Height="100" Background="#8c396d">
+      <Text Alignment="Center" Color="White" FontSize="20">JavaScript Examples</Text>
+      <Clicked>
+        <JavaScript>
+          router.goto("HomePage");
+        </JavaScript>
+      </Clicked>
+    </Panel>
+
+    <ScrollView Dock="Fill">
+      <StackPanel>
+
+        <!-- OBSERVABLE EXAMPLE -->
+        <JavaScript>
+        var Observable = require('FuseJS/Observable');
+        var emailInput = Observable("");
+
+        module.exports = {
+            emailInput: emailInput
+        }
+        </JavaScript>
+
+        <Text FontSize="20" Color="#ffffff" Margin="5">Obvervable Variable</Text>
+        <Rectangle Width="100%" Height="2" Margin="3" Color="#8c396d" />
+
+        <Text FontSize="18" Color="#d2d2d2" Margin="5">Input</Text>
+        <TextInput PlaceholderText="Email Input" FontSize="16" PlaceholderColor="#fff" TextColor="#EEEEEE" CaretColor="#fff" Width="100%" Padding="10,10,8,8" Value="{emailInput}" HitTestMode="LocalBoundsAndChildren" />
+
+
+        <Text FontSize="18" Color="#d2d2d2" Margin="5">Value</Text>
+        <Text FontSize="16" Color="White" Margin="10" Value="{emailInput}"></Text>
+
+
+
+
+        <!-- LISTING DATA -->
+        <JavaScript>
+        var Observable = require('FuseJS/Observable');
+
+        var dataList = Observable(
+            { name: "Ali", age: 24 },
+            { name: "Hasan", age: 25 },
+            { name: "Samet", age: 26 }
+          );
+
+        module.exports = {
+            dataList: dataList
+        }
+
+        </JavaScript>
+
+        <Text FontSize="20" Color="#ffffff" Margin="5,40,5,5">Data Listing</Text>
+        <Rectangle Width="100%" Height="2" Margin="3" Color="#8c396d" />
+
+        <Each Items="{dataList}">
+          <Text Color="#f0f0f0" Margin="5">Ad: {name}  Doğum Yılı: {= 2018 - {age}}</Text>
+        </Each>
+
+
+
+
+
+        <!-- FETCH AND LIST DATA -->
+        <JavaScript>
+        var Observable = require('FuseJS/Observable');
+
+        var dataContainer = Observable();
+
+        var fetchData = function(){
+          fetch('https://jsonplaceholder.typicode.com/posts')
+          .then(response => response.json())
+          .then((json) =>{
+            dataContainer.replaceAll(json);
+          });
+
+        }
+        module.exports = {
+            dataContainer: dataContainer,
+            fetchData: fetchData,
+            cleanData: () => {
+              dataContainer.clear();
+            }
+        }
+        </JavaScript>
+
+        <Text FontSize="20" Color="#ffffff" Margin="5,40,5,5">API CALL</Text>
+        <Rectangle Width="100%" Height="2" Margin="3" Color="#8c396d" />
+
+        <Each Items="{dataContainer}">
+          <Panel Background="White" Margin="5" Padding="3">
+            <Text Color="#ff4500" Value="{title}" />
+          </Panel>
+        </Each>
+
+        <WhileEmpty Items="{dataContainer}">
+          <Text  Width="100%" TextAlignment="Center" Color="White">Uygun Veri Bulunamadı</Text>
+
+          <Panel Width="100%" Height="40" Margin="0,24,0,0" Background="#cceeff">
+			    		<Text Color="#000" Alignment="Center" FontSize="20" HitTestMode="LocalBoundsAndChildren" Clicked="{fetchData}">FETCH</Text>
+			    </Panel>
+        </WhileEmpty>
+
+        <WhileNotEmpty Items="{dataContainer}">
+          <Panel Width="100%" Height="40" Margin="0,24,0,0" Background="#cceeff">
+			    		<Text Color="#000" Alignment="Center" FontSize="20" HitTestMode="LocalBoundsAndChildren" Clicked="{cleanData}">Clean</Text>
+			    </Panel>
+        </WhileNotEmpty>
+
+
+
+      </StackPanel>
+
+
+    </ScrollView>
+
+  </DockPanel>
+
+
+
+</Page>
